@@ -4,9 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="container__header">
+            <div class="container__header__input">
+                <div class="task__group">
+                    <label for="task">Task</label>
+                    <input type="text" placeholder="placeholder" id="taskText">
+                </div>
+                <div class="assignee__group">
+                    <label for="assignee">Assignee</label>
+                    <input type="text" placeholder="placeholder" id="assigneeText">
+                </div>
+            </div>
+            <div class="container__header__submit">
+                <button id="addButton">Add</button>
+            </div>
+
+        </div>
+        <hr>
+        </hr>
+        <div class="container__body" id="parentTask">
+            <div class="container__body__search">
+                <input id="search" type="search" placeholder="&#xF002; Search" style="font-family: FontAwesome;"
+                    onkeyup="searchFun()">
+            </div>
+            <template id="task">
+                <div class="task">
+                    <div class="col col__header">
+                        <p style="font-weight: bold;">Task</p>
+                        <p style="font-weight: bold;">Assignee</p>
+                    </div>
+                    <div class="col col__content">
+                        <p class="taskDemo"></p>
+
+                        <p class="assigneeDemo"></p>
+                    </div>
+                    <div class="col col__icon">
+                        <i class="icon--position fa fa-trash fa-2x" aria-hidden="true" onclick="deleteFun(this)"></i>
+                        <i class="fa fa-check-circle fa-2x" aria-hidden="true" onclick="handleTaskDoneClick(this)"></i>
+
+                    </div>
+                </div>
+            </template>
+        </div>
+        <div class="container__body__result">
+            <p>ToDo:</p>
+            <p id="todo"></p>
+            <p>Done:</p>
+            <p id="done"></p>
+        </div>
+    </div>
+    <script src="/javascript/scriptFile.js"> </script>
 </body>
 </html>
